@@ -4,12 +4,12 @@
         <record id="purchase_order_template_comp_rule" model="ir.rule">
             <field name="name">RFQ Template: multi-company</field>
             <field name="model_id" ref="model_purchase_order_template"/>
-            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'parent_of', company_ids)]</field>
         </record>
         <record id="purchase_order_template_line_comp_rule" model="ir.rule">
             <field name="name">RFQ Template Line: multi-company</field>
             <field name="model_id" ref="model_purchase_order_template_line"/>
-            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'parent_of', company_ids)]</field>
         </record>
     </data>
 </odoo>

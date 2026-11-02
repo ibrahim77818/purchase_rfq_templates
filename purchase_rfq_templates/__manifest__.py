@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'RFQ / Purchase Templates',
-    'version': '16.0.1.0.0',
+    'version': '19.0.1.0.0',
     'summary': 'Reusable RFQ templates: load products, quantities, UoMs, notes '
                'and analytics into purchase orders with native vendor pricing and taxes',
     'description': """

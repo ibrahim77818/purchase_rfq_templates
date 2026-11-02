@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="purchase_order_template_view_tree" model="ir.ui.view">
-        <field name="name">purchase.order.template.tree</field>
+        <field name="name">purchase.order.template.list</field>
         <field name="model">purchase.order.template</field>
         <field name="arch" type="xml">
-            <tree string="RFQ Templates">
+            <list string="RFQ Templates">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="partner_id" optional="show"/>
                 <field name="partner_ids" widget="many2many_tags" optional="hide"/>
                 <field name="line_count" optional="show"/>
                 <field name="company_id" groups="base.group_multi_company" optional="show"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -22,16 +22,16 @@
             <form string="RFQ Template">
                 <header>
                     <button name="action_create_rfq" type="object" string="Create RFQ"
-                            class="oe_highlight" attrs="{'invisible': [('active', '=', False)]}"/>
+                            class="oe_highlight" invisible="not active"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_view_rfqs" type="object" class="oe_stat_button"
                                 icon="fa-shopping-cart" string="RFQs / Orders"/>
                     </div>
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"/>
-                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <field name="active" invisible="True"/>
                     <div class="oe_title">
                         <label for="name"/>
                         <h1><field name="name" placeholder="e.g. Monthly office supplies"/></h1>
@@ -46,13 +46,13 @@
                             <field name="payment_term_id" options="{'no_create': True}"/>
                             <field name="company_id" groups="base.group_multi_company"
                                    options="{'no_create': True}"/>
-                            <field name="company_id" invisible="1" groups="!base.group_multi_company"/>
+                            <field name="company_id" invisible="True" groups="!base.group_multi_company"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Lines" name="lines">
-                            <field name="line_ids" widget="section_and_note_one2many" mode="tree">
-                                <tree editable="bottom">
+                            <field name="line_ids" widget="section_and_note_one2many" mode="list">
+                                <list editable="bottom">
                                     <control>
                                         <create name="add_product_control" string="Add a product"/>
                                         <create name="add_section_control" string="Add a section"
@@ -61,26 +61,26 @@
                                                 context="{'default_display_type': 'line_note'}"/>
                                     </control>
                                     <field name="sequence" widget="handle"/>
-                                    <field name="display_type" invisible="1"/>
-                                    <field name="company_id" invisible="1"/>
-                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="display_type" column_invisible="True"/>
+                                    <field name="company_id" column_invisible="True"/>
+                                    <field name="allowed_uom_ids" column_invisible="True"/>
                                     <field name="product_id"
-                                           attrs="{'required': [('display_type', '=', False)]}"
+                                           required="not display_type"
                                            context="{'default_purchase_ok': True}"/>
                                     <field name="name" widget="section_and_note_text" optional="show"/>
                                     <field name="partner_id" optional="show"
-                                           attrs="{'invisible': [('display_type', '!=', False)]}"
+                                           invisible="display_type"
                                            context="{'res_partner_search_mode': 'supplier'}"/>
                                     <field name="analytic_distribution" widget="analytic_distribution"
                                            optional="hide"
                                            groups="analytic.group_analytic_accounting"
                                            options="{'product_field': 'product_id', 'business_domain': 'purchase_order'}"/>
                                     <field name="product_qty"
-                                           attrs="{'invisible': [('display_type', '!=', False)]}"/>
+                                           invisible="display_type"/>
                                     <field name="product_uom_id" groups="uom.group_uom"
                                            options="{'no_create': True}"
-                                           attrs="{'required': [('display_type', '=', False)], 'invisible': [('display_type', '!=', False)]}"/>
-                                </tree>
+                                           required="not display_type" invisible="display_type"/>
+                                </list>
                             </field>
                         </page>
                         <page string="Terms and Conditions" name="terms">
@@ -105,7 +105,7 @@
                 <field name="line_ids" string="Product" filter_domain="[('line_ids.product_id', 'ilike', self)]"/>
                 <separator/>
                 <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
-                <group expand="0" string="Group By">
+                <group>
                     <filter string="Default Vendor" name="groupby_partner" context="{'group_by': 'partner_id'}"/>
                     <filter string="Company" name="groupby_company" context="{'group_by': 'company_id'}"
                             groups="base.group_multi_company"/>
@@ -117,7 +117,7 @@
     <record id="purchase_order_template_action" model="ir.actions.act_window">
         <field name="name">RFQ Templates</field>
         <field name="res_model">purchase.order.template</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="purchase_order_template_view_search"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create an RFQ template</p>

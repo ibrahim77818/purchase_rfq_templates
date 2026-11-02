@@ -21,48 +21,57 @@ class PurchaseOrderTemplateLine(models.Model):
 
     product_id = fields.Many2one(
         'product.product', string='Product', check_company=True,
-        domain="[('purchase_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+        domain="[('purchase_ok', '=', True), '|', ('company_id', '=', False), ('company_id', 'parent_of', company_id)]")
     name = fields.Text(
         string='Description', translate=True,
         help="Optional. Leave empty to use the vendor's product description, "
              "computed when the RFQ line is created.")
     product_qty = fields.Float(
-        string='Quantity', digits='Product Unit of Measure', default=1.0)
-    product_uom_category_id = fields.Many2one(related='product_id.uom_id.category_id')
+        string='Quantity', digits='Product Unit', default=1.0)
+    # v19: no more UoM categories; same allowed units as purchase.order.line
+    allowed_uom_ids = fields.Many2many('uom.uom', compute='_compute_allowed_uom_ids')
     product_uom_id = fields.Many2one(
-        'uom.uom', string='Unit of Measure',
+        'uom.uom', string='Unit',
         compute='_compute_product_uom_id', store=True, readonly=False, precompute=True,
-        domain="[('category_id', '=', product_uom_category_id)]")
+        domain="[('id', 'in', allowed_uom_ids)]")
     partner_id = fields.Many2one(
         'res.partner', string='Only for Vendor',
         help="Vendor-specific line: it is loaded only when the RFQ vendor "
              "(or its company) is this vendor. Leave empty to load it for every vendor.")
 
-    _sql_constraints = [
-        ('accountable_product_required',
-         "CHECK(display_type IS NOT NULL OR product_id IS NOT NULL)",
-         "A template line must have a product (only sections and notes may not)."),
-        ('non_accountable_null_fields',
-         "CHECK(display_type IS NULL OR (product_id IS NULL AND product_uom_id IS NULL))",
-         "Sections and notes cannot have a product or unit of measure."),
-    ]
+    # v19: models.Constraint replaces _sql_constraints
+    _accountable_product_required = models.Constraint(
+        "CHECK(display_type IS NOT NULL OR product_id IS NOT NULL)",
+        "A template line must have a product (only sections and notes may not).")
+    _non_accountable_null_fields = models.Constraint(
+        "CHECK(display_type IS NULL OR (product_id IS NULL AND product_uom_id IS NULL))",
+        "Sections and notes cannot have a product or unit of measure.")
+
+    @api.depends('product_id', 'product_id.uom_id', 'product_id.uom_ids',
+                 'product_id.seller_ids', 'product_id.seller_ids.product_uom_id')
+    def _compute_allowed_uom_ids(self):
+        for line in self:
+            seller_uom = line.product_id.seller_ids.filtered(
+                lambda s: s.product_id.id in {False, line.product_id.id}).product_uom_id
+            line.allowed_uom_ids = line.product_id.uom_id | line.product_id.uom_ids | seller_uom
 
     @api.depends('product_id')
     def _compute_product_uom_id(self):
         for line in self:
             if line.display_type or not line.product_id:
                 line.product_uom_id = False
-            elif not line.product_uom_id or line.product_uom_id.category_id != line.product_id.uom_id.category_id:
-                line.product_uom_id = line.product_id.uom_po_id or line.product_id.uom_id
+            elif not line.product_uom_id or line.product_uom_id not in line.allowed_uom_ids:
+                line.product_uom_id = line.product_id.uom_id
 
     @api.constrains('product_id', 'product_uom_id')
     def _check_uom_category(self):
         for line in self:
+            # same rule as the RFQ line: product unit, its packagings or a vendor unit
             if line.product_id and line.product_uom_id \
-                    and line.product_uom_id.category_id != line.product_id.uom_id.category_id:
+                    and line.product_uom_id not in line.allowed_uom_ids:
                 raise ValidationError(_(
-                    "The unit of measure '%(uom)s' of line '%(product)s' is not in the same "
-                    "category as the product's unit of measure.",
+                    "The unit '%(uom)s' of line '%(product)s' is not compatible with the "
+                    "product's unit.",
                     uom=line.product_uom_id.name, product=line.product_id.display_name))
 
     @api.constrains('product_qty', 'display_type')
@@ -96,8 +105,7 @@ class PurchaseOrderTemplateLine(models.Model):
         product = self.product_id
         if not product.active or not product.purchase_ok:
             return False
-        if product.purchase_line_warn == 'block':  # "Blocking Message" on purchase
-            return False
-        if product.company_id and product.company_id != order.company_id:
+        # v17 branches: products of the order company or of one of its parents
+        if product.company_id and product.company_id not in order.company_id.parent_ids:
             return False
         return True

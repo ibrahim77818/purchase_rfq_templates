@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-01 09:00+0000\n"
 "PO-Revision-Date: 2026-11-01 09:00+0000\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
-#, python-format
 msgid "%s (copy)"
 msgstr "%s (نسخة)"
 
@@ -48,19 +48,19 @@ msgid "Add a section"
 msgstr "إضافة قسم"
 
 #. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__allowed_uom_ids
+msgid "Allowed Uom"
+msgstr "وحدة القياس المسموح بها"
+
+#. module: purchase_rfq_templates
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__partner_ids
 msgid "Allowed Vendors"
 msgstr "الموردون المسموح لهم"
 
 #. module: purchase_rfq_templates
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__analytic_distribution
-msgid "Analytic"
-msgstr "تحليلي"
-
-#. module: purchase_rfq_templates
-#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__analytic_distribution_search
-msgid "Analytic Distribution Search"
-msgstr "البحث في التوزيع التحليلي"
+msgid "Analytic Distribution"
+msgstr "التوزيع التحليلي"
 
 #. module: purchase_rfq_templates
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__analytic_precision
@@ -74,21 +74,11 @@ msgid "Archived"
 msgstr "مؤرشف"
 
 #. module: purchase_rfq_templates
-#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__product_uom_category_id
-msgid "Category"
-msgstr "الفئة"
-
-#. module: purchase_rfq_templates
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__company_id
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__company_id
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_search
 msgid "Company"
 msgstr "الشركة"
-
-#. module: purchase_rfq_templates
-#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template_line__product_uom_category_id
-msgid "Conversion between Units of Measure can only occur if they belong to the same category. The conversion will be made based on the ratios."
-msgstr "لا يمكن التحويل بين وحدات القياس إلا إذا كانت تنتمي إلى نفس الفئة. سيتم التحويل بناءً على النسب."
 
 #. module: purchase_rfq_templates
 #: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template__note
@@ -145,14 +135,14 @@ msgid "Display Type"
 msgstr "نوع العرض"
 
 #. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__distribution_analytic_account_ids
+msgid "Distribution Analytic Account"
+msgstr "حساب التوزيع التحليلي"
+
+#. module: purchase_rfq_templates
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
 msgid "e.g. Monthly office supplies"
 msgstr "مثال: المستلزمات المكتبية الشهرية"
-
-#. module: purchase_rfq_templates
-#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_search
-msgid "Group By"
-msgstr "تجميع حسب"
 
 #. module: purchase_rfq_templates
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__id
@@ -170,12 +160,6 @@ msgstr "ملاحظات داخلية"
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
 msgid "Internal notes about this template"
 msgstr "ملاحظات داخلية حول هذا القالب"
-
-#. module: purchase_rfq_templates
-#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template____last_update
-#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line____last_update
-msgid "Last Modified on"
-msgstr "آخر تعديل في"
 
 #. module: purchase_rfq_templates
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__write_uid
@@ -216,8 +200,8 @@ msgid "Loading a template adds its lines to the RFQ. Lines previously loaded fro
 msgstr "يؤدي تحميل القالب إلى إضافة بنوده إلى طلب عرض السعر. يتم استبدال البنود المحمّلة سابقًا من قالب، ويتم الإبقاء على البنود التي أضفتها يدويًا."
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
-#, python-format
 msgid "Not loaded (vendor-specific, archived, not purchasable or other company): %s"
 msgstr "لم يتم تحميلها (خاصة بمورد آخر، أو مؤرشفة، أو غير قابلة للشراء، أو تابعة لشركة أخرى): %s"
 
@@ -263,6 +247,7 @@ msgid "Reapply Template"
 msgstr "إعادة تطبيق القالب"
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
 msgid "Request for Quotation"
 msgstr "طلب عرض سعر"
@@ -301,12 +286,13 @@ msgstr "القيم الافتراضية لطلب عرض السعر"
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order__purchase_template_id
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_view_search_inherit_rfq_template
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_filter_inherit_rfq_template
 msgid "RFQ Template"
 msgstr "قالب طلب عرض السعر"
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
-#, python-format
 msgid "RFQ template %s applied."
 msgstr "تم تطبيق قالب طلب عرض السعر %s."
 
@@ -334,8 +320,8 @@ msgid "Sections and notes cannot have a product or unit of measure."
 msgstr "لا يمكن أن تحتوي الأقسام والملاحظات على منتج أو وحدة قياس."
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
-#, python-format
 msgid "Select an RFQ template on %s first."
 msgstr "يرجى اختيار قالب طلب عرض سعر في %s أولًا."
 
@@ -346,6 +332,7 @@ msgid "Sequence"
 msgstr "التسلسل"
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 msgid "Some template lines were not loaded"
 msgstr "لم يتم تحميل بعض بنود القالب"
@@ -376,11 +363,13 @@ msgid "Template Name"
 msgstr "اسم القالب"
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
 msgid "Template quantities cannot be negative."
 msgstr "لا يمكن أن تكون كميات القالب سالبة."
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 msgid "Templates can only be applied on draft or sent RFQs."
 msgstr "لا يمكن تطبيق القوالب إلا على طلبات عروض الأسعار في حالة المسودة أو المُرسلة."
@@ -397,39 +386,39 @@ msgid "Terms and Conditions"
 msgstr "الشروط والأحكام"
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
-#, python-format
 msgid "The default vendor of template '%s' must be one of its allowed vendors."
 msgstr "يجب أن يكون المورد الافتراضي للقالب \"%s\" أحد الموردين المسموح لهم."
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
-#, python-format
 msgid "The RFQ template '%(template)s' belongs to %(company)s and cannot be used on an order of %(order_company)s."
 msgstr "قالب طلب عرض السعر \"%(template)s\" تابع للشركة %(company)s ولا يمكن استخدامه في أمر تابع للشركة %(order_company)s."
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
-#, python-format
 msgid "The RFQ template '%(template)s' is not allowed for vendor %(vendor)s."
 msgstr "قالب طلب عرض السعر \"%(template)s\" غير مسموح به للمورد %(vendor)s."
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
-#, python-format
 msgid "The RFQ template '%s' is archived."
 msgstr "قالب طلب عرض السعر \"%s\" مؤرشف."
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
-#, python-format
-msgid "The unit of measure '%(uom)s' of line '%(product)s' is not in the same category as the product's unit of measure."
-msgstr "وحدة القياس \"%(uom)s\" في البند \"%(product)s\" ليست من نفس فئة وحدة قياس المنتج."
+msgid "The unit '%(uom)s' of line '%(product)s' is not compatible with the product's unit."
+msgstr "الوحدة \"%(uom)s\" في البند \"%(product)s\" غير متوافقة مع وحدة المنتج."
 
 #. module: purchase_rfq_templates
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__product_uom_id
-msgid "Unit of Measure"
-msgstr "وحدة القياس"
+msgid "Unit"
+msgstr "الوحدة"
 
 #. module: purchase_rfq_templates
 #: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template__payment_term_id
@@ -452,6 +441,7 @@ msgid "Vendors"
 msgstr "الموردون"
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
 msgid "You cannot change the type of a template line. Delete it and add a new line instead."
 msgstr "لا يمكنك تغيير نوع بند القالب. احذفه وأضف بندًا جديدًا بدلًا من ذلك."

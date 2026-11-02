@@ -2,7 +2,7 @@
 RFQ / Purchase Templates
 =======================
 
-Odoo 16 (Community & Enterprise) — technical name ``purchase_rfq_templates``.
+Odoo 19 (Community & Enterprise) — technical name ``purchase_rfq_templates``.
 
 Features
 ========
@@ -38,3 +38,17 @@ Tests
         --test-tags /purchase_rfq_templates --stop-after-init
 
 Author: Ibrahim Yahia — https://www.linkedin.com/in/ibrahim-yahia — LGPL-3
+
+Odoo 17 / 18 / 19 notes
+=======================
+* Views use the 17.0 ``invisible`` / ``readonly`` / ``required`` / ``column_invisible``
+  expressions (``attrs`` and ``states`` are no longer accepted).
+* Branches: templates and products of a parent company can be used by its branches.
+* Vendor price list discounts are copied to the RFQ line (``Disc.%``).
+* 18.0: list views use ``<list>`` (``tree`` is no longer a view type); template
+  duplication is batch-safe (``copy_data``).
+* 19.0: order lines use ``product_uom_id`` / ``tax_ids``, the order uses ``note``;
+  units have no categories any more: a template unit must be one of the units
+  allowed on RFQ lines (product unit, its packagings, vendor units);
+  SQL constraints use ``models.Constraint``; the purchase "Blocking Message"
+  no longer exists in Odoo, so it is no longer checked.
