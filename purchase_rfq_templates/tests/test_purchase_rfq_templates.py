@@ -58,8 +58,10 @@ class TestPurchaseRfqTemplates(TransactionCase):
             'name': 'Toner', 'type': 'consu', 'purchase_ok': True, 'standard_price': 40.0,
         })
 
-        cls.analytic_plan = cls.env['account.analytic.plan'].create({
-            'name': 'RFQ Templates Plan', 'company_id': False})
+        plan_vals = {'name': 'RFQ Templates Plan'}
+        if 'company_id' in cls.env['account.analytic.plan']._fields:
+            plan_vals['company_id'] = False  # removed from analytic plans during the 17.0 series
+        cls.analytic_plan = cls.env['account.analytic.plan'].create(plan_vals)
         cls.analytic_admin = cls.env['account.analytic.account'].create({
             'name': 'Administration', 'plan_id': cls.analytic_plan.id, 'company_id': False})
         cls.analytic_it = cls.env['account.analytic.account'].create({
@@ -221,6 +223,15 @@ class TestPurchaseRfqTemplates(TransactionCase):
         self.assertEqual(pen.product_qty, 2)
         self.assertAlmostEqual(pen.price_unit, 24.0, msg="2.0/unit converted to dozen")
         self.assertAlmostEqual(po.amount_untaxed, 60 * 8.0 + 2 * 24.0)
+
+    def test_vendor_discount(self):
+        """v17: the vendor price list discount is computed natively and kept."""
+        self.product_paper.seller_ids.filtered(lambda s: s.min_qty == 50).discount = 10.0
+        po = self._new_po(purchase_template_id=self.template.id)
+        paper = self._line(po, self.product_paper)
+        self.assertEqual(paper.price_unit, 8.0)
+        self.assertEqual(paper.discount, 10.0)
+        self.assertAlmostEqual(paper.price_subtotal, 60 * 8.0 * 0.9)
 
     def test_vendor_specific_price(self):
         po = self._new_po(partner=self.vendor_b, purchase_template_id=self.template.id)
@@ -400,3 +411,36 @@ class TestPurchaseRfqTemplates(TransactionCase):
         self.assertNotIn(template_b, visible)
         with self.assertRaises(AccessError):
             Template.create({'name': 'Users cannot create templates'})
+
+    def test_branch_uses_parent_company_template(self):
+        """v17 branches: a parent company template (and its products) is usable in a branch."""
+        branch = self.env['res.company'].create({'name': 'RFQ Templates Branch', 'parent_id': self.company.id})
+        self.env.user.company_ids |= branch
+        self.product_toner.company_id = self.company
+        parent_template = self.env['purchase.order.template'].create({
+            'name': 'Parent company template', 'company_id': self.company.id,
+            'line_ids': [Command.create({'product_id': self.product_toner.id, 'product_qty': 3})],
+        })
+        po_branch = self.env['purchase.order'].with_company(branch).create({
+            'partner_id': self.vendor_a.id, 'company_id': branch.id,
+            'purchase_template_id': parent_template.id})
+        self.assertEqual(po_branch.order_line.product_id, self.product_toner)
+        self.assertEqual(po_branch.order_line.product_qty, 3)
+
+        # ...but a branch template cannot be used by the parent company
+        branch_template = self.env['purchase.order.template'].create({
+            'name': 'Branch template', 'company_id': branch.id})
+        po = self._new_po()
+        with self.assertRaises(UserError):
+            po._purchase_template_apply(branch_template)
+        with self.assertRaises(UserError):
+            po.write({'purchase_template_id': branch_template.id})
+
+    def test_duplicated_order_lines_are_manual(self):
+        """A duplicated RFQ has no template, so its lines must not be flagged as template lines."""
+        po = self._new_po(purchase_template_id=self.template.id)
+        self.assertTrue(all(po.order_line.mapped('from_purchase_template')))
+        copy = po.copy()
+        self.assertFalse(copy.purchase_template_id)
+        self.assertTrue(copy.order_line)
+        self.assertFalse(any(copy.order_line.mapped('from_purchase_template')))

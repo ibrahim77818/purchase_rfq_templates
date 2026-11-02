@@ -2,7 +2,7 @@
 RFQ / Purchase Templates
 =======================
 
-Odoo 16 (Community & Enterprise) — technical name ``purchase_rfq_templates``.
+Odoo 17 (Community & Enterprise) — technical name ``purchase_rfq_templates``.
 
 Features
 ========
@@ -38,3 +38,10 @@ Tests
         --test-tags /purchase_rfq_templates --stop-after-init
 
 Author: Ibrahim Yahia — https://www.linkedin.com/in/ibrahim-yahia — LGPL-3
+
+Odoo 17 notes
+=============
+* Views use the 17.0 ``invisible`` / ``readonly`` / ``required`` / ``column_invisible``
+  expressions (``attrs`` and ``states`` are no longer accepted).
+* Branches: templates and products of a parent company can be used by its branches.
+* Vendor price list discounts are copied to the RFQ line (``Disc.%``).
