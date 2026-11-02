@@ -8,6 +8,8 @@ class PurchaseOrderTemplate(models.Model):
     _description = 'RFQ / Purchase Template'
     _order = 'sequence, name, id'
     _check_company_auto = True
+    # v17 branches: a template of a parent company can be used by its branches
+    _check_company_domain = models.check_company_domain_parent_of
 
     name = fields.Char(string='Template Name', required=True, translate=True)
     active = fields.Boolean(default=True)
@@ -24,7 +26,7 @@ class PurchaseOrderTemplate(models.Model):
     # Vendor mapping
     partner_id = fields.Many2one(
         'res.partner', string='Default Vendor', check_company=True,
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
+        domain="['|', ('company_id', '=', False), ('company_id', 'parent_of', company_id)]",
         help="Vendor set on the RFQ when the template is loaded on an RFQ "
              "that has no vendor yet.")
     partner_ids = fields.Many2many(
@@ -36,7 +38,7 @@ class PurchaseOrderTemplate(models.Model):
     # Header defaults (only filled when empty on the RFQ)
     payment_term_id = fields.Many2one(
         'account.payment.term', string='Payment Terms', check_company=True,
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
+        domain="['|', ('company_id', '=', False), ('company_id', 'parent_of', company_id)]",
         help="Used only when the RFQ has no payment terms yet.")
     note = fields.Html(
         string='Terms and Conditions', translate=True,
@@ -65,11 +67,13 @@ class PurchaseOrderTemplate(models.Model):
         allowed = self.partner_ids | self.partner_ids.commercial_partner_id
         return partner in allowed or commercial in allowed
 
-    def copy(self, default=None):
-        default = dict(default or {})
-        if 'name' not in default:
-            default['name'] = _("%s (copy)", self.name)
-        return super().copy(default)
+    def copy_data(self, default=None):
+        # v18: copy() works on several records at once, so name each copy here
+        vals_list = super().copy_data(default=default)
+        if 'name' not in (default or {}):
+            for template, vals in zip(self, vals_list):
+                vals['name'] = _("%s (copy)", template.name)
+        return vals_list
 
     def action_create_rfq(self):
         """Open a new RFQ pre-loaded with this template."""

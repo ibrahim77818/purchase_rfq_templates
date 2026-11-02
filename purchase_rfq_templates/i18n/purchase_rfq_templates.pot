@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-01 09:00+0000\n"
 "PO-Revision-Date: 2026-11-01 09:00+0000\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
 #, python-format
 msgid "%s (copy)"
@@ -52,12 +53,7 @@ msgstr ""
 
 #. module: purchase_rfq_templates
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__analytic_distribution
-msgid "Analytic"
-msgstr ""
-
-#. module: purchase_rfq_templates
-#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__analytic_distribution_search
-msgid "Analytic Distribution Search"
+msgid "Analytic Distribution"
 msgstr ""
 
 #. module: purchase_rfq_templates
@@ -143,6 +139,11 @@ msgid "Display Type"
 msgstr ""
 
 #. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__distribution_analytic_account_ids
+msgid "Distribution Analytic Account"
+msgstr ""
+
+#. module: purchase_rfq_templates
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
 msgid "e.g. Monthly office supplies"
 msgstr ""
@@ -167,12 +168,6 @@ msgstr ""
 #. module: purchase_rfq_templates
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
 msgid "Internal notes about this template"
-msgstr ""
-
-#. module: purchase_rfq_templates
-#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template____last_update
-#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: purchase_rfq_templates
@@ -214,6 +209,7 @@ msgid "Loading a template adds its lines to the RFQ. Lines previously loaded fro
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 #, python-format
 msgid "Not loaded (vendor-specific, archived, not purchasable or other company): %s"
@@ -261,6 +257,7 @@ msgid "Reapply Template"
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
 msgid "Request for Quotation"
 msgstr ""
@@ -299,10 +296,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order__purchase_template_id
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
 #: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_view_search_inherit_rfq_template
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_filter_inherit_rfq_template
 msgid "RFQ Template"
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 #, python-format
 msgid "RFQ template %s applied."
@@ -332,6 +331,7 @@ msgid "Sections and notes cannot have a product or unit of measure."
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 #, python-format
 msgid "Select an RFQ template on %s first."
@@ -344,6 +344,7 @@ msgid "Sequence"
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 msgid "Some template lines were not loaded"
 msgstr ""
@@ -374,11 +375,13 @@ msgid "Template Name"
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
 msgid "Template quantities cannot be negative."
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 msgid "Templates can only be applied on draft or sent RFQs."
 msgstr ""
@@ -395,30 +398,35 @@ msgid "Terms and Conditions"
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
 #, python-format
 msgid "The default vendor of template '%s' must be one of its allowed vendors."
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 #, python-format
 msgid "The RFQ template '%(template)s' belongs to %(company)s and cannot be used on an order of %(order_company)s."
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 #, python-format
 msgid "The RFQ template '%(template)s' is not allowed for vendor %(vendor)s."
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order.py:0
 #, python-format
 msgid "The RFQ template '%s' is archived."
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
 #, python-format
 msgid "The unit of measure '%(uom)s' of line '%(product)s' is not in the same category as the product's unit of measure."
@@ -450,6 +458,7 @@ msgid "Vendors"
 msgstr ""
 
 #. module: purchase_rfq_templates
+#. odoo-python
 #: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
 msgid "You cannot change the type of a template line. Delete it and add a new line instead."
 msgstr ""

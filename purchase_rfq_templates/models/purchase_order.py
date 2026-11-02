@@ -11,9 +11,7 @@ class PurchaseOrder(models.Model):
     purchase_template_id = fields.Many2one(
         'purchase.order.template', string='RFQ Template',
         check_company=True, copy=False, tracking=True,
-        states={'purchase': [('readonly', True)], 'done': [('readonly', True)],
-                'cancel': [('readonly', True)]},
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
+        domain="['|', ('company_id', '=', False), ('company_id', 'parent_of', company_id)]",
         help="Loading a template adds its lines to the RFQ. Lines previously loaded "
              "from a template are replaced; lines you added manually are kept.")
 
@@ -84,7 +82,7 @@ class PurchaseOrder(models.Model):
             raise UserError(_("Templates can only be applied on draft or sent RFQs."))
         if not template.active:
             raise UserError(_("The RFQ template '%s' is archived.", template.name))
-        if template.company_id and template.company_id != self.company_id:
+        if template.company_id and template.company_id not in self.company_id.parent_ids:
             raise UserError(_(
                 "The RFQ template '%(template)s' belongs to %(company)s and cannot be used "
                 "on an order of %(order_company)s.",
@@ -126,6 +124,8 @@ class PurchaseOrder(models.Model):
         applicable = template.line_ids.filtered(lambda l: l._is_applicable_to(self))
         skipped = template.line_ids - applicable
 
+        # Must be read BEFORE the line simulation below: Line.new(order_id=<NewId>)
+        # temporarily adds the simulated lines to the cached order_line.
         old_lines = self.order_line.filtered('from_purchase_template')
         kept_lines = self.order_line - old_lines
         base_sequence = max(kept_lines.mapped('sequence') or [0])
@@ -136,8 +136,8 @@ class PurchaseOrder(models.Model):
             vals_list.append(vals)
 
         if isinstance(self.id, models.NewId):
-            # Form/onchange: work on the cached recordset. Delete commands on
-            # new lines cannot be used here (the ORM would wrap their NewId again).
+            # Form/onchange: replace the cached recordset (this also drops the
+            # simulated pricing lines added to the cache by Line.new()).
             Line = self.env['purchase.order.line']
             new_lines = Line.browse()
             for vals in vals_list:
@@ -176,6 +176,7 @@ class PurchaseOrder(models.Model):
             'product_qty': tline.product_qty,
             'product_uom': line.product_uom.id,
             'price_unit': line.price_unit,
+            'discount': line.discount,  # v17: vendor price list discount
             'taxes_id': [Command.set(line.taxes_id.ids)],
             'date_planned': line.date_planned,
             'name': tline.name or line.name,

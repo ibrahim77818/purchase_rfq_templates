@@ -21,7 +21,7 @@ class PurchaseOrderTemplateLine(models.Model):
 
     product_id = fields.Many2one(
         'product.product', string='Product', check_company=True,
-        domain="[('purchase_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+        domain="[('purchase_ok', '=', True), '|', ('company_id', '=', False), ('company_id', 'parent_of', company_id)]")
     name = fields.Text(
         string='Description', translate=True,
         help="Optional. Leave empty to use the vendor's product description, "
@@ -98,6 +98,7 @@ class PurchaseOrderTemplateLine(models.Model):
             return False
         if product.purchase_line_warn == 'block':  # "Blocking Message" on purchase
             return False
-        if product.company_id and product.company_id != order.company_id:
+        # v17 branches: products of the order company or of one of its parents
+        if product.company_id and product.company_id not in order.company_id.parent_ids:
             return False
         return True
