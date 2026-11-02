@@ -1,0 +1,457 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_rfq_templates
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-01 09:00+0000\n"
+"PO-Revision-Date: 2026-11-01 09:00+0000\n"
+"Last-Translator: Ibrahim Yahia\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (نسخة)"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.constraint,message:purchase_rfq_templates.constraint_purchase_order_template_line_accountable_product_required
+msgid "A template line must have a product (only sections and notes may not)."
+msgstr "يجب أن يحتوي بند القالب على منتج (الأقسام والملاحظات فقط مستثناة)."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Add a note"
+msgstr "إضافة ملاحظة"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Add a product"
+msgstr "إضافة منتج"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Add a section"
+msgstr "إضافة قسم"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__partner_ids
+msgid "Allowed Vendors"
+msgstr "الموردون المسموح لهم"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__analytic_distribution
+msgid "Analytic"
+msgstr "تحليلي"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__analytic_distribution_search
+msgid "Analytic Distribution Search"
+msgstr "البحث في التوزيع التحليلي"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__analytic_precision
+msgid "Analytic Precision"
+msgstr "الدقة التحليلية"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_search
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__product_uom_category_id
+msgid "Category"
+msgstr "الفئة"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__company_id
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__company_id
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_search
+msgid "Company"
+msgstr "الشركة"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template_line__product_uom_category_id
+msgid "Conversion between Units of Measure can only occur if they belong to the same category. The conversion will be made based on the ratios."
+msgstr "لا يمكن التحويل بين وحدات القياس إلا إذا كانت تنتمي إلى نفس الفئة. سيتم التحويل بناءً على النسب."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template__note
+msgid "Copied to the RFQ terms when they are empty."
+msgstr "تُنسخ إلى شروط طلب عرض السعر إذا كانت فارغة."
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.actions.act_window,help:purchase_rfq_templates.purchase_order_template_action
+msgid "Create an RFQ template"
+msgstr "إنشاء قالب طلب عرض سعر"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Create RFQ"
+msgstr "إنشاء طلب عرض سعر"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__create_uid
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__create_date
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Default terms and conditions for RFQs created from this template"
+msgstr "الشروط والأحكام الافتراضية لطلبات عروض الأسعار المنشأة من هذا القالب"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__partner_id
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_search
+msgid "Default Vendor"
+msgstr "المورد الافتراضي"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__display_name
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__display_type
+msgid "Display Type"
+msgstr "نوع العرض"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "e.g. Monthly office supplies"
+msgstr "مثال: المستلزمات المكتبية الشهرية"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__id
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__description
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Internal Notes"
+msgstr "ملاحظات داخلية"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Internal notes about this template"
+msgstr "ملاحظات داخلية حول هذا القالب"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template____last_update
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__write_uid
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__write_date
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template__company_id
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template_line__company_id
+msgid "Leave empty to share this template between all companies."
+msgstr "اتركه فارغًا لمشاركة هذا القالب بين جميع الشركات."
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Lines"
+msgstr "البنود"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_form_inherit_rfq_template
+msgid "Lines previously loaded from a template will be replaced (manual lines are kept). Continue?"
+msgstr "سيتم استبدال البنود المحمّلة سابقًا من قالب (مع الإبقاء على البنود المُضافة يدويًا). هل تريد المتابعة؟"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_line__from_purchase_template
+msgid "Loaded from Template"
+msgstr "محمّل من قالب"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order__purchase_template_id
+msgid "Loading a template adds its lines to the RFQ. Lines previously loaded from a template are replaced; lines you added manually are kept."
+msgstr "يؤدي تحميل القالب إلى إضافة بنوده إلى طلب عرض السعر. يتم استبدال البنود المحمّلة سابقًا من قالب، ويتم الإبقاء على البنود التي أضفتها يدويًا."
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order.py:0
+#, python-format
+msgid "Not loaded (vendor-specific, archived, not purchasable or other company): %s"
+msgstr "لم يتم تحميلها (خاصة بمورد آخر، أو مؤرشفة، أو غير قابلة للشراء، أو تابعة لشركة أخرى): %s"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields.selection,name:purchase_rfq_templates.selection__purchase_order_template_line__display_type__line_note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__partner_id
+msgid "Only for Vendor"
+msgstr "خاص بالمورد"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template_line__name
+msgid "Optional. Leave empty to use the vendor's product description, computed when the RFQ line is created."
+msgstr "اختياري. اتركه فارغًا لاستخدام وصف المنتج لدى المورد، والذي يُحتسب عند إنشاء بند طلب عرض السعر."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__payment_term_id
+msgid "Payment Terms"
+msgstr "شروط الدفع"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__product_id
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_search
+msgid "Product"
+msgstr "المنتج"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__line_count
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__product_qty
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_form_inherit_rfq_template
+msgid "Reapply Template"
+msgstr "إعادة تطبيق القالب"
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
+msgid "Request for Quotation"
+msgstr "طلب عرض سعر"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template__partner_ids
+msgid "Restrict the template to these vendors (and their contacts). Leave empty to allow any vendor."
+msgstr "قصر استخدام القالب على هؤلاء الموردين (وجهات الاتصال التابعة لهم). اتركه فارغًا للسماح لأي مورد."
+
+#. module: purchase_rfq_templates
+#: model:ir.module.module,summary:base.module_purchase_rfq_templates
+msgid "Reusable RFQ templates: load products, quantities, UoMs, notes and analytics into purchase orders with native vendor pricing and taxes"
+msgstr "قوالب طلبات عروض أسعار قابلة لإعادة الاستخدام: تحميل المنتجات والكميات ووحدات القياس والملاحظات والتوزيع التحليلي إلى أوامر الشراء مع تسعير الموردين والضرائب القياسية"
+
+#. module: purchase_rfq_templates
+#: model:ir.model,name:purchase_rfq_templates.model_purchase_order_template
+msgid "RFQ / Purchase Template"
+msgstr "قالب طلب عرض السعر / الشراء"
+
+#. module: purchase_rfq_templates
+#: model:ir.model,name:purchase_rfq_templates.model_purchase_order_template_line
+msgid "RFQ / Purchase Template Line"
+msgstr "بند قالب طلب عرض السعر / الشراء"
+
+#. module: purchase_rfq_templates
+#: model:ir.module.module,shortdesc:base.module_purchase_rfq_templates
+msgid "RFQ / Purchase Templates"
+msgstr "قوالب طلبات عروض الأسعار / الشراء"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "RFQ Defaults"
+msgstr "القيم الافتراضية لطلب عرض السعر"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order__purchase_template_id
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_view_search_inherit_rfq_template
+msgid "RFQ Template"
+msgstr "قالب طلب عرض السعر"
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order.py:0
+#, python-format
+msgid "RFQ template %s applied."
+msgstr "تم تطبيق قالب طلب عرض السعر %s."
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_tree
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_search
+#: model:ir.actions.act_window,name:purchase_rfq_templates.purchase_order_template_action
+#: model:ir.ui.menu,name:purchase_rfq_templates.menu_purchase_order_template
+msgid "RFQ Templates"
+msgstr "قوالب طلبات عروض الأسعار"
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "RFQs / Orders"
+msgstr "طلبات عروض الأسعار / الأوامر"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields.selection,name:purchase_rfq_templates.selection__purchase_order_template_line__display_type__line_section
+msgid "Section"
+msgstr "قسم"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.constraint,message:purchase_rfq_templates.constraint_purchase_order_template_line_non_accountable_null_fields
+msgid "Sections and notes cannot have a product or unit of measure."
+msgstr "لا يمكن أن تحتوي الأقسام والملاحظات على منتج أو وحدة قياس."
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order.py:0
+#, python-format
+msgid "Select an RFQ template on %s first."
+msgstr "يرجى اختيار قالب طلب عرض سعر في %s أولًا."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__sequence
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order.py:0
+msgid "Some template lines were not loaded"
+msgstr "لم يتم تحميل بعض بنود القالب"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template_line__display_type
+msgid "Technical field for UX purpose."
+msgstr "حقل تقني لأغراض تجربة المستخدم."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_line__from_purchase_template
+msgid "Technical: lines loaded from an RFQ template are replaced when a template is applied again; manual lines are kept."
+msgstr "تقني: يتم استبدال البنود المحمّلة من قالب طلب عرض السعر عند إعادة تطبيق قالب، ويتم الإبقاء على البنود اليدوية."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__template_id
+msgid "Template"
+msgstr "القالب"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__line_ids
+msgid "Template Lines"
+msgstr "بنود القالب"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__name
+msgid "Template Name"
+msgstr "اسم القالب"
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
+msgid "Template quantities cannot be negative."
+msgstr "لا يمكن أن تكون كميات القالب سالبة."
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order.py:0
+msgid "Templates can only be applied on draft or sent RFQs."
+msgstr "لا يمكن تطبيق القوالب إلا على طلبات عروض الأسعار في حالة المسودة أو المُرسلة."
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.actions.act_window,help:purchase_rfq_templates.purchase_order_template_action
+msgid "Templates let you load recurring products, quantities and notes into an RFQ in one click. Prices and taxes are computed from your vendors' price lists."
+msgstr "تتيح لك القوالب تحميل المنتجات والكميات والملاحظات المتكررة إلى طلب عرض السعر بنقرة واحدة. يتم احتساب الأسعار والضرائب من قوائم أسعار الموردين."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template__note
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Terms and Conditions"
+msgstr "الشروط والأحكام"
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order_template.py:0
+#, python-format
+msgid "The default vendor of template '%s' must be one of its allowed vendors."
+msgstr "يجب أن يكون المورد الافتراضي للقالب \"%s\" أحد الموردين المسموح لهم."
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order.py:0
+#, python-format
+msgid "The RFQ template '%(template)s' belongs to %(company)s and cannot be used on an order of %(order_company)s."
+msgstr "قالب طلب عرض السعر \"%(template)s\" تابع للشركة %(company)s ولا يمكن استخدامه في أمر تابع للشركة %(order_company)s."
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order.py:0
+#, python-format
+msgid "The RFQ template '%(template)s' is not allowed for vendor %(vendor)s."
+msgstr "قالب طلب عرض السعر \"%(template)s\" غير مسموح به للمورد %(vendor)s."
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order.py:0
+#, python-format
+msgid "The RFQ template '%s' is archived."
+msgstr "قالب طلب عرض السعر \"%s\" مؤرشف."
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
+#, python-format
+msgid "The unit of measure '%(uom)s' of line '%(product)s' is not in the same category as the product's unit of measure."
+msgstr "وحدة القياس \"%(uom)s\" في البند \"%(product)s\" ليست من نفس فئة وحدة قياس المنتج."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,field_description:purchase_rfq_templates.field_purchase_order_template_line__product_uom_id
+msgid "Unit of Measure"
+msgstr "وحدة القياس"
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template__payment_term_id
+msgid "Used only when the RFQ has no payment terms yet."
+msgstr "تُستخدم فقط إذا لم تكن لطلب عرض السعر شروط دفع بعد."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template__partner_id
+msgid "Vendor set on the RFQ when the template is loaded on an RFQ that has no vendor yet."
+msgstr "المورد الذي يتم تعيينه في طلب عرض السعر عند تحميل القالب على طلب ليس له مورد بعد."
+
+#. module: purchase_rfq_templates
+#: model:ir.model.fields,help:purchase_rfq_templates.field_purchase_order_template_line__partner_id
+msgid "Vendor-specific line: it is loaded only when the RFQ vendor (or its company) is this vendor. Leave empty to load it for every vendor."
+msgstr "بند خاص بمورد: يتم تحميله فقط عندما يكون مورد طلب عرض السعر (أو شركته) هو هذا المورد. اتركه فارغًا لتحميله لجميع الموردين."
+
+#. module: purchase_rfq_templates
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_templates.purchase_order_template_view_form
+msgid "Vendors"
+msgstr "الموردون"
+
+#. module: purchase_rfq_templates
+#: code:addons/purchase_rfq_templates/models/purchase_order_template_line.py:0
+msgid "You cannot change the type of a template line. Delete it and add a new line instead."
+msgstr "لا يمكنك تغيير نوع بند القالب. احذفه وأضف بندًا جديدًا بدلًا من ذلك."

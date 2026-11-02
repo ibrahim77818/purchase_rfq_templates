@@ -1,0 +1,197 @@
+<!-- Odoo Apps description page for purchase_rfq_templates (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Purchase &middot; RFQ Templates &middot; Vendor Pricing</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">RFQ / Purchase Templates</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Save the products, quantities, units of measure, sections and notes you buy again and again, and load them into any RFQ in one click. Prices, taxes and analytic accounts are computed by Odoo&rsquo;s own purchase engine, exactly as if the buyer had typed each line.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">25 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: purchase_rfq_templates</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">1 field</div><div style="font-size:15px;color:#555;">Pick an <b>RFQ Template</b> on the RFQ and its lines appear instantly</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">0 retyping</div><div style="font-size:15px;color:#555;">Vendor price tiers, UoM, fiscal positions and taxes are applied natively</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">3 vendor rules</div><div style="font-size:15px;color:#555;">Default vendor, allowed vendors and vendor-specific lines</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">0 lines lost</div><div style="font-size:15px;color:#555;">Reapplying never touches manual lines or header data you already set</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Recurring purchases (office supplies, consumables, safety kits, pantry restocks) follow the same list every time. Standard Purchase has no reusable shopping list for RFQs.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>Buyers <b>retype the same lines</b> on every RFQ, or duplicate an old order and clean it up.</li>
+      <li>Quantities, <b>units of measure</b> and line descriptions drift from one buyer to another.</li>
+      <li>Some items are only bought from <b>one specific vendor</b>; nothing stops them landing on the wrong RFQ.</li>
+      <li>Standard <b>terms and payment terms</b> must be remembered and entered by hand.</li>
+      <li><b>Analytic accounts</b> are chosen line by line, so costs end up in the wrong place.</li>
+      <li>There is no way to see <b>which RFQs came from which list</b>.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>Select an <b>RFQ Template</b> and all its lines load at once, priced from the vendor&rsquo;s price list.</li>
+      <li>Templates fix the <b>quantity, UoM, sections and notes</b>; you can still edit the RFQ afterwards.</li>
+      <li><b>Only for Vendor</b> lines load only for that vendor; <b>Allowed Vendors</b> restrict the whole template.</li>
+      <li><b>Payment Terms</b> and <b>Terms and Conditions</b> are copied when the RFQ has none.</li>
+      <li>Each template line can carry an <b>analytic distribution</b> that flows to the RFQ line.</li>
+      <li>RFQs remember their template: <b>group by RFQ Template</b> or open them from the template.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps from a recurring list to a priced RFQ.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Build</div><div style="font-size:14px;color:#555;">A Purchase manager creates a template under Purchase &rsaquo; Configuration &rsaquo; RFQ Templates.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Select</div><div style="font-size:14px;color:#555;">On a new RFQ, pick the <b>RFQ Template</b>, or click <b>Create RFQ</b> on the template.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Price</div><div style="font-size:14px;color:#555;">Each line runs through Odoo&rsquo;s product, price list, fiscal position and analytic rules.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Refresh</div><div style="font-size:14px;color:#555;">Template changed? <b>Reapply Template</b> on the draft; your manual lines stay.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 6px;">Screenshots use demo data: <b>My Company (Riyadh)</b> in SAR with a 15% purchase tax, the vendors <b>Gulf Office Supplies</b>, <b>Al Noor Trading</b>, <b>Desert Stationery Co.</b> and <b>Euro Paper GmbH</b>, and a <b>Monthly Office Supplies</b> template.</p>
+
+<div style="margin:36px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">One new menu, right where buyers configure Purchase</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Purchase &rsaquo; Configuration &rsaquo; RFQ Templates</b>, next to <b>Vendor Pricelists</b>. On the RFQ itself the module adds the <b>RFQ Template</b> field and the <b>Reapply Template</b> button.</p>
+  <img src="prt_01_menu.png" alt="Purchase Configuration menu with the RFQ Templates entry" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">A library of reusable purchase lists</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Order templates by drag and drop, see the <b>Default Vendor</b>, the number of <b>Products</b> and the <b>Company</b>. Leave the company empty to share a template between all companies. Search by name, vendor or product, filter <b>Archived</b> templates and group by <b>Default Vendor</b> or <b>Company</b>.</p>
+  <img src="prt_02_templates_list.png" alt="List of RFQ templates with default vendor, product count and company" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Products, quantities, UoMs, sections, notes and analytics</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Lines</b> tab works like an RFQ: <b>Add a product</b>, <b>Add a section</b>, <b>Add a note</b>. Each product line has a <b>Quantity</b>, a <b>Unit of Measure</b> (any unit of the product&rsquo;s category, e.g. Pens bought by the Dozen), an optional <b>Description</b> override, an <b>Analytic</b> distribution and an optional <b>Only for Vendor</b>. The <b>Vendors</b> and <b>RFQ Defaults</b> groups hold the default vendor, allowed vendors and payment terms; <b>Terms and Conditions</b> and <b>Internal Notes</b> have their own tabs.</p>
+  <img src="prt_03_template_form.png" alt="RFQ template form with vendors, defaults and template lines" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Lines load instantly, priced by the vendor&rsquo;s price list</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Choose the <b>RFQ Template</b> on the RFQ and the lines appear before you save. Each line replays the standard product selection, then sets the template&rsquo;s unit of measure and quantity, so Odoo picks the right <b>vendor price tier</b>, converts units and currency, maps taxes through the <b>fiscal position</b> and applies <b>analytic distribution models</b>. The vendor&rsquo;s product code and name are used as the description unless the template overrides it.</p>
+  <img src="prt_04_rfq_loaded.png" alt="New RFQ with the template selected and lines priced from the vendor price list" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:18px;"><b>Worked example:</b> Gulf Office Supplies sells A4 paper at SAR&nbsp;10.00 (min. 1) and SAR&nbsp;8.00 (min. 50). The template asks for 60 units, so the line is priced at <b>SAR&nbsp;8.00</b>. Pens cost SAR&nbsp;2.00 per unit and the template buys them by the Dozen, so the line shows <b>2.00 Dozens &times; SAR&nbsp;24.00</b>.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Vendor-specific lines, and a clear report of what was left out</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">A line with <b>Only for Vendor</b> loads only when the RFQ vendor (or its parent company) is that vendor, so the original toner goes to Gulf Office Supplies and the compatible one to Al Noor Trading. Lines that are skipped (another vendor&rsquo;s line, an archived or non-purchasable product, a product with a blocking purchase warning, or a product of another company) are listed in a warning in the form, or in the chatter when you reapply.</p>
+  <img src="prt_05_skipped_warning.png" alt="Warning listing the template lines that were not loaded for this vendor" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Header defaults that never overwrite your choices</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The template fills the <b>Vendor</b>, <b>Payment Terms</b> and <b>Terms and Conditions</b> only when the RFQ has none. When the template sets the vendor, Odoo&rsquo;s normal vendor cascade runs: here Euro Paper GmbH brings its <b>Fiscal Position</b> (15% mapped to 0%) and, having no purchase payment terms of its own, keeps the template&rsquo;s <b>30 Days</b>.</p>
+  <img src="prt_08_payment_terms_fiscal_position.png" alt="Other Information tab with payment terms from the template and the vendor fiscal position" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:18px;">
+    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">On the RFQ</th><th style="text-align:left;padding:10px 14px;">What the template does</th></tr></thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Vendor</td><td style="padding:10px 14px;">Set to the <b>Default Vendor</b> only if empty; must be one of the <b>Allowed Vendors</b> when they are set</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Payment Terms</td><td style="padding:10px 14px;">Copied only if empty; a vendor&rsquo;s own purchase payment terms take priority</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Terms and Conditions</td><td style="padding:10px 14px;">Copied only if empty</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Lines added by hand</td><td style="padding:10px 14px;">Always kept</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Lines from a template</td><td style="padding:10px 14px;">Replaced by the current template lines</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Reapply an updated template on a draft RFQ</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Changed the template after the RFQ was created? Click <b>Reapply Template</b> on any RFQ in <b>RFQ</b> or <b>RFQ Sent</b> state. Lines marked <b>Loaded from Template</b> are replaced; lines you added yourself, like the whiteboard markers below, stay. Applying twice gives the same result, and the chatter records it.</p>
+  <img src="prt_06_reapply_confirm.png" alt="Reapply Template confirmation over an RFQ with template and manual lines" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
+  <img src="prt_07_reapplied_chatter.png" alt="RFQ after reapplying with new quantities, the manual line kept and a chatter message" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">After reapplying: the template now orders 80 reams and adds envelopes; the manual whiteboard markers line is untouched.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">See every RFQ and order created from a template</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Search RFQs by <b>RFQ Template</b> or use <b>Group By &rsaquo; RFQ Template</b> to compare spend per list. On the template, the <b>RFQs / Orders</b> smart button opens the same list, and <b>Create RFQ</b> opens a new RFQ already loaded with the template and its default vendor. Template changes on an RFQ are tracked in the chatter.</p>
+  <img src="prt_09_group_by_template.png" alt="Requests for quotation grouped by RFQ template" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 8</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Fully translated into Arabic</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Every label, button, help text, warning and error message ships in Arabic, using the wording of Odoo&rsquo;s official Arabic Purchase translation. Template names and terms are translatable fields, so one template can carry both languages.</p>
+  <img src="prt_10_arabic.png" alt="RFQ template form in Arabic, right to left" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">The situations that usually break purchase templates, and what the module does in each.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Switching templates on a new RFQ</b><br/><span style="color:#555;">Only the previous template&rsquo;s lines are replaced; lines you typed stay.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company</b><br/><span style="color:#555;">A company template can&rsquo;t be used on another company&rsquo;s RFQ. Shared templates skip products restricted to another company and use only the order company&rsquo;s taxes.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Archived templates and products</b><br/><span style="color:#555;">Archived templates can&rsquo;t be applied. Archived, non-purchasable or blocked products are skipped and reported.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Confirmed orders</b><br/><span style="color:#555;">Templates apply only to RFQs in RFQ or RFQ Sent state; the field is read-only on confirmed, locked and cancelled orders.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Vendor contacts</b><br/><span style="color:#555;">Allowed vendors and vendor-specific lines match the vendor&rsquo;s company, so an RFQ addressed to one of its contacts works too.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Units of measure</b><br/><span style="color:#555;">The template unit must be in the product&rsquo;s UoM category; prices are converted to it. Negative quantities are rejected.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Imports and integrations</b><br/><span style="color:#555;">An RFQ created by code or import with a template and no lines is filled automatically (context <code>skip_purchase_template_apply</code> turns this off).</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Buyers without analytic access</b><br/><span style="color:#555;">The template&rsquo;s analytic distribution is still saved on the RFQ lines, even when the Analytic column is hidden for that user.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Explicit lines win</b><br/><span style="color:#555;">An RFQ created with its own lines is never overwritten by its template.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Uses the standard Purchase groups; no new groups to configure.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Can</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Purchase / User</td><td style="padding:10px 14px;">Read templates, select them on RFQs and use <b>Reapply Template</b></td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Purchase / Administrator</td><td style="padding:10px 14px;">Create, edit, archive and delete templates; access the <b>Configuration</b> menu</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Multi-company (record rules)</td><td style="padding:10px 14px;">Users see shared templates and those of their allowed companies only</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Technical details</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Small footprint, standard APIs, no core overrides of pricing logic.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;vertical-align:top;">Odoo version</td><td style="padding:10px 14px;overflow-wrap:anywhere;">16.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;vertical-align:top;">Depends on</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>purchase</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;vertical-align:top;">Python dependency</td><td style="padding:10px 14px;overflow-wrap:anywhere;">None</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;vertical-align:top;">Menus</td><td style="padding:10px 14px;overflow-wrap:anywhere;">Purchase &rsaquo; Configuration &rsaquo; RFQ Templates</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;vertical-align:top;">Models</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>purchase.order.template</code>, <code>purchase.order.template.line</code>; extends <code>purchase.order</code> (RFQ Template) and <code>purchase.order.line</code> (Loaded from Template)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;vertical-align:top;">Automated tests</td><td style="padding:10px 14px;overflow-wrap:anywhere;">25 <code>TransactionCase</code> tests: form loading, price tiers and UoM, fiscal positions and taxes, analytics, vendor rules, reapply and idempotency, archive states, multi-company and access rules</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;vertical-align:top;">Translations</td><td style="padding:10px 14px;overflow-wrap:anywhere;">Arabic (<code>ar</code>), plus a <code>.pot</code> template for other languages</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;vertical-align:top;">License</td><td style="padding:10px 14px;overflow-wrap:anywhere;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;  ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>

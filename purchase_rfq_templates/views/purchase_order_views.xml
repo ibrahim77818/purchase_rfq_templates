@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_inherit_rfq_template" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.rfq.template</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_apply_purchase_template" type="object"
+                        string="Reapply Template"
+                        attrs="{'invisible': ['|', ('purchase_template_id', '=', False), ('state', 'not in', ('draft', 'sent'))]}"
+                        confirm="Lines previously loaded from a template will be replaced (manual lines are kept). Continue?"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field name="purchase_template_id"
+                       options="{'no_create': True}"
+                       context="{'default_company_id': company_id}"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                <field name="from_purchase_template" optional="hide"/>
+                <!-- keep template analytics for buyers without analytic access -->
+                <field name="analytic_distribution" invisible="1" force_save="1"
+                       groups="!analytic.group_analytic_accounting"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_search_inherit_rfq_template" model="ir.ui.view">
+        <field name="name">purchase.order.search.inherit.rfq.template</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="purchase_template_id"/>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter string="RFQ Template" name="groupby_purchase_template"
+                        context="{'group_by': 'purchase_template_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
